@@ -1,0 +1,46 @@
+version: '3.7'
+networks:
+  default:
+    name: login2fa_network
+
+services:
+
+  postgres.login2fa.users:
+    container_name: ${DB_SERVICE}
+    hostname: ${DB_SERVICE}
+    labels:
+      NAME: ${DB_SERVICE}
+    restart: unless-stopped
+    image: ${DB_SERVICE}:latest
+    build:
+      context: ${DB_CONTEXT}
+      dockerfile: ${DB_DOCKERFILE}
+    env_file:
+      - development.env
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+    ports:
+      - "5432:5432"
+    #volumes:
+
+  fastapi.login2fa.users:
+    container_name: ${FASTAPI_USERS_SERVICE}
+    hostname: ${FASTAPI_USERS_SERVICE}
+    labels:
+      NAME: ${FASTAPI_USERS_SERVICE}
+    restart: unless-stopped
+    image: ${FASTAPI_USERS_SERVICE}:${MY_ENV}
+    build:
+      context: ${FASTAPI_USERS_CONTEXT}
+      dockerfile: ${FASTAPI_USERS_DOCKERFILE}
+    env_file:
+      - development.env
+    ports:
+      - ${FASTAPI_USERS_PORT}
+    depends_on:
+      - ${DB_SERVICE}
+    volumes:
+      - ./:/webapp
+    command: tail -f /dev/null
