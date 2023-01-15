@@ -3,17 +3,6 @@ The idea behind this simple application is to design and test a [Multi-factor au
 [one time password](https://en.wikipedia.org/wiki/One-time_password)  and implemented through the framework FastAPI.
 
 
-### Tools Employed
-This app had been implemented by using the following tools:
-``` 
-Docker version 20.10.21
-docker-compose version 2.13.0
-PyCharm version 2022.3
-Python 3.10 version
-postgres (PostgreSQL) 12 
-```
-
-
 ### QuickStart using Docker
 *NB the next steps should not change depending on the SO used. Otherwise, please report encountered errors by emailing me or just creating an new issue. Thank you.*  
 
@@ -24,8 +13,7 @@ and wait it to finish. Then, login to the new container with ```docker exec -it 
 
 Once inside the container, you should be able to run the app instance by running ```. ./stack/development/fastapi/dryRun.sh```
 
-*---- indirizzo in cui è presente la documentazione*
-
+FastAPI is based on OpenAPI which generates an interactive API documentation and exploration web user interfaces (you should find it [here](http://127.0.0.1:8201/docs)).
 In addition, into ```docs``` folder you find postman collection and environment with which to test the running app. 
 
 
