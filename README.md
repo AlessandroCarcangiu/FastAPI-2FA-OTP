@@ -4,7 +4,7 @@ The idea behind this simple application is to design and test a [Multi-factor au
 
 
 ### QuickStart using Docker
-*NB the next steps should not change depending on the SO used. Otherwise, please report encountered errors by emailing me or just creating an new issue. Thank you.*  
+*NB the next steps should not change depending on the SO used. Otherwise, please report any errors/mistakes by emailing me or just creating an new issue. Thank you.*  
 
 Clone the repository and move onto the new folder and be sure you're using the main branch.
 
